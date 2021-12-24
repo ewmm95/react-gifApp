@@ -1,13 +1,98 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+:root {
+  /*paleta atardecer*/
+  --palette-night-sky: #0F2C67;
+  --palette-sun: #CD1818;
+  --palette-water-sun: #F3950D;
+  --palette-sand: #F4E185;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+* {
+  font-family: helvetica, Arial, sans-serif;
+}
+
+body {
+  padding: 60px;
+  background-color: var(--palette-night-sky)
+}
+
+/* ------------------------------------------------ input Search ------------------------------------------------ */
+
+.input-search {
+  background-color: var(--palette-sand);
+  background: linear-gradient(5deg, rgba(244,225,133,1) 0%, rgba(243,149,13,1) 5%, rgba(205,24,24,1) 15%, rgba(15,44,103,1) 70%);
+  background: linear-gradient(5deg, rgba(244,225,133,1) 10%, rgba(243,149,13,1) 30%, rgba(205,24,24,1) 50%, rgba(15,44,103,1) 80%);
+  color: var(--palette-night-sky);
+  border: solid 0px;;
+  border-radius: 5px;
+  padding: 1rem 1rem;
+  margin: 0rem 3rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+  width: 95%;
+  transition: .3s ease-out;
+  opacity: .4;
+}
+
+.input-search:hover {
+  opacity: .6;
+}
+
+.input-search:focus {
+  opacity: 1;
+}
+/*
+*/
+
+/* ------------------------------------------------ cards ------------------------------------------------ */
+
+.cards {
+  --auto-grid-min-size: 16rem;
+  
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(var(--auto-grid-min-size), 1fr));
+  grid-gap: 2rem;
+  margin: 1rem;
+  padding-left: 0;
+  pointer-events: none;
+  text-align: center;
+}
+
+.cards > * {
+  box-shadow: 0 2px 30px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  cursor: pointer;
+
+  pointer-events: auto;
+  transition: 300ms opacity, 300ms transform;
+}
+
+.cards:hover > *,
+.cards:focus-within > * {
+  opacity: 0.4;
+}
+
+.cards:hover > *:hover,
+.cards:focus-within > *:focus {
+  transform: scale(1.3);
+  opacity: 1;
+}
+
+.cards:hover > :focus:not(:hover) {
+  transform: scale(1.05);
+}
+
+.card {
+  background: var(--palette-water-sun);
+  color: var(--palette-night-sky);
+  list-style: none;
+  padding: 2rem .1rem;
+  opacity: .9;
+}
+
+.card img{
+  max-width: 17rem;
+}
+
+h2, h3 {
+  color: var(--palette-water-sun);
 }
