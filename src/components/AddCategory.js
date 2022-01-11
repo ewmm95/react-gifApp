@@ -6,6 +6,7 @@ export const AddCategory = ( { setCategories } ) => {
     const handleInputChange = ({target: {value}}) => setInputValue(value)
     const handleSubmit = (e) => {
         e.preventDefault();
+        if(inputValue.trim().length <= 2) return;
         setCategories( x => [inputValue, ...x] );
         setInputValue('');
     }
